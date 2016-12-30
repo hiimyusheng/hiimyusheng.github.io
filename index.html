@@ -7,15 +7,55 @@
   <title>履歷表</title>
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
   <style>
-  .image{
-    width:50px;
+  .image {
+    width: 100%;
+    margin: 10px 0 10px 0;
+  }
+  body {
+    background-color: #eee;
+  }
+  #wrapper {
+    background-color: #fff;
+    max-width: 1000px;
+    min-width: 600px;
+  }
+  #side {
+    background-color: red;
+  }
+  #main {
+    background-color: purple;
+  }
+  .right {
+    background-color: grey;
+  }
+  .profile {
+    width: 100%
+  }
+  .contact {
+    margin: 10px 0 10px 0;
   }
   </style>
 </head>
 <body>
-  <div class="containers">
-    <button class="btn btn-info">我是按鈕</button>
-    <img src="13449433.jpeg" class="img-circle image" >
-  </div>
-</body>
+  <div id="wrapper" class="container">
+    <div class="row">
+      <div id="side" class="col-md-3 col-sm-3 col-xs-3">
+        <div class="profile">
+          <img src="13449433.jpeg" class="img-circle image">
+          <h2 class="font-white">徐宥勝</h2>
+          <h2 class="font-white">銘傳大學</h2>
+        </div>
+        <div class="contact">
+          <u1>
+            <li>Email</li>
+            <li>Phone</li>
+            <li>Github</li>
+            <li>Facebook</li>
+          </u1>
+        </div>
+      </div>
+      <div id="main" class="col-md-9 col-sm-9 col-xs-9">
+      </div>
+    </div>
+  </body>
 </html>
