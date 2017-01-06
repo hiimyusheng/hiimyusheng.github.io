@@ -67,11 +67,18 @@
   </style>
   <script type="text/javascript">
     $( function() {
+      $("ul>li>a").click(function(event) {
+
+        event.preventDefault();
+        var ref = $(this).attr("href");
+        var x = $(ref).offset().top
+        $("body, html").animate({ scrollTop: x-50 },1000);
+      });
       $('body').scrollspy({ target: '#navbar-example' })
     });
   </script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbar-example">
   <div id="index">
     <nav id="navbar-example" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
