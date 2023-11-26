@@ -55,7 +55,7 @@ var x = setInterval(function() {
   var now = new Date().getTime();
   // Find the distance between now and the count down date
   let distance;
-  if (now > countDownDate) {
+  if (now < countDownDate) {
     distance = countDownDate - now;
     leaveText = "懇親假";
   } else {
