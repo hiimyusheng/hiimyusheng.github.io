@@ -1,96 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <metd http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>履歷表</title>
-  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+<meta charset="utf-8">
 
-  </script>
-  <style>
+<style>
+  .background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("yu.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+  .countDown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    /* height: 100vh; */
+    
+
+  }
   .image {
-    width: 200px;
-    height: 200px;
-    margin: 10px 0 10px 0;
+    height: 80%;
   }
-  body {
-    background-color: #eee;
+  .text {
+    font-size: 60px;
+    color: whitesmoke;
+    background-color: gray;
   }
-  #wrapper {
-    background-color: #fff;
-    max-width: 1000px;
+  #demo {
+    font-size: 50px;
+    color: whitesmoke;
+    background-color: gray;
+  }
+</style>
 
-  }
-  #side {
-    background-color: #D28EFF;
+<!-- Display the countdown timer in an element -->
+<div class="background">
+  <div class="image"></div>
+  <div class="countDown">
+    <div class="text">距離宇正o去當兵已過</div>
+    <div style="width: 100%;"></div>
+    <div id="demo"></div>
 
-  }
-  #main {
-    background-color: #FFF;
-  }
-  .right {
-    background-color: grey;
-  }
-  .profile {
-    margin: 20px 10px;
-    text-align: center;
-  }
-  .contact {
-    margin: 20px 0 20px 0;
+  </div>
+</div>
 
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Nov 23, 2023 08:00:00").getTime();
 
-  }
-  .contact ul {
-    list-style: none;
+// Update the count down every 1 second
+var x = setInterval(function() {
 
-  }
-  .list {
-    padding: 0 15px;
-  }
-  .title {
-    margin: 20px 10px;
-    font-size: 20pt;
-  }
-  .paragragh {
-    margin: 20px 35px;
-    font-size: 10pt;
-  }
-  .space {
-    margin: 0 10px;
-  }
-  </style>
-</head>
-<body>
-  <div id="wrapper" class="container">
-    <div class="row">
-      <div id="side" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div class="profile">
-          <img src="13449433.jpeg" class="img-circle image">
-          <h1 class="font-white">徐宥勝</h1>
-          <h3 class="font-white">銘傳大學</h3>
-        </div>
-        <div class="contact">
-          <ul class="list">
-            <li><span class="glyphicon glyphicon-inbox" aria-hidden="true"></span><span class="space">Email</span></li>
-            <li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span><span class="space">Phone</span></li>
-            <li><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="space">Github</span></li>
-            <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="space">Facebook</span></li>
-          </ul>
-        </div>
-      </div>
-      <div id="main" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-        <div class="area">
-          <div class="title">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            <span>個人簡介</span>
-          </div>
-          <div class="paragragh">
-            <p>123</p>
-            <p>456</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = Math.abs(days) + "天 " + Math.abs(hours) + "小時 "
+  + Math.abs(minutes) + "分 " + Math.abs(seconds) + "秒 ";
+
+}, 1000);
+</script>
