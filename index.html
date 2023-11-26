@@ -35,7 +35,7 @@
 <div class="background">
   <div class="image"></div>
   <div class="countDown">
-    <div class="text">距離宇正o懇親假還有</div>
+    <div class="text">距離宇正o </div>
     <div style="width: 100%;"></div>
     <div id="demo"></div>
   </div>
@@ -44,15 +44,26 @@
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Dec 1, 2023 08:00:00").getTime();
+var leaveArmyTime = new Date("Mar 15 2023 00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
 
+  let leaveText;
+  // let firstVacation = "懇親假";
+  // let leaveArmy = "退伍";
+
   // Get today's date and time
   var now = new Date().getTime();
-
   // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  let distance;
+  if (now > countDownDate) {
+    distance = countDownDate - now;
+    leaveText = "懇親假";
+  } else {
+    distance = leaveArmyTime - now;
+    leaveText = "退伍";
+  }
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -63,6 +74,10 @@ var x = setInterval(function() {
   // Display the result in the element with id="demo"
   document.getElementById("demo").innerHTML = Math.abs(days) + "天 " + Math.abs(hours) + "小時 "
   + Math.abs(minutes) + "分 " + Math.abs(seconds) + "秒 ";
-
+  if (distance > 0) {
+    document.getElementsByClassName("text")[0].innerHTML = "距離宇正o " + leaveText + " 還有";
+  } else {
+    document.getElementsByClassName("text")[0].innerHTML = "距離宇正o " + leaveText + " 已經";
+  }
 }, 1000);
 </script>
